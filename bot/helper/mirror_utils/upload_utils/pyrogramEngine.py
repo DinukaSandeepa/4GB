@@ -62,7 +62,16 @@ class TgUploader:
         self.__listener.onUploadComplete(None, size, self.__msgs_dict, self.__total_files, self.__corrupted, self.name)
 
     def __upload_file(self, up_path, file_, dirpath):
-        	        besic=file_
+              # print full path file location +	
+        keption = DOWNLOAD_DIR	
+        if not keption.endswith('/'): keption = keption + '/'	
+        if not keption.startswith('/'): keption = '/' + keption	
+        keption = up_path.replace(keption, '', 1)	
+        zoy = keption.split('/')[0]	
+        keption = keption.replace(zoy, '', 1)	
+        if keption.startswith('/'): keption = keption.replace('/', '', 1)	
+        # print full path file location -
+        keption=file_
         if len(file_)>60:	
          ext=file_.split('.')[-1]	
          file_='.'.join(file_.split('.')[:-1])	
@@ -81,7 +90,7 @@ class TgUploader:
             osrename(up_path, new_path)
             up_path = new_path
         else:
-            cap_mono = f"<b>{besic}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>"
+            cap_mono = f"<b>{keption}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>"
         notMedia = False
         thumb = self.__thumb
         self.__is_corrupted = False
