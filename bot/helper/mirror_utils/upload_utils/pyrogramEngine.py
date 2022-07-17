@@ -63,16 +63,15 @@ class TgUploader:
 
     def __upload_file(self, up_path, file_, dirpath):
       
-      	besic=file_
-        if len(file_)>60:	
-         ext=file_.split('.')[-1]	
-         file_='.'.join(file_.split('.')[:-1])	
-         file_=file_.replace('_','.')	
-         if len(file_)>(59-len(ext)):	
-         file_=file_[:(59-len(ext))]	
-         file_=file_+'.'+ext	
-        print('saef ' +file_)	
-        new_path = ospath.join(dirpath, file_)	
+        if len(keption)>60:	
+         ext=keption.split('.')[-1]	
+         keption='.'.join(keption.split('.')[:-1])	
+         keption=keption.replace('_','.')	
+         if len(keption)>(59-len(ext)):	
+         keption=keption[:(59-len(ext))]	
+         keption=keption+'.'+ext	
+        print('saef ' +keption)	
+        new_path = ospath.join(dirpath, keption)	
         osrename(up_path, new_path)	
         up_path = new_path
       
