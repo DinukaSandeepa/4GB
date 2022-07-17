@@ -75,17 +75,7 @@ class TgUploader:
         new_path = ospath.join(dirpath, file_)	
         osrename(up_path, new_path)	
         up_path = new_path
-      
-      
-        # print full path file location +
-        keption = DOWNLOAD_DIR
-        if not keption.endswith('/'): keption = keption + '/'
-        if not keption.startswith('/'): keption = '/' + keption
-        keption = up_path.replace(keption, '', 1)
-        zoy = keption.split('/')[0]
-        keption = keption.replace(zoy, '', 1)
-        if keption.startswith('/'): keption = keption.replace('/', '', 1)
-        # print full path file location -
+	
         if CUSTOM_FILENAME is not None:
             cap_mono = f"{CUSTOM_FILENAME} <b>{keption}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #f"{CUSTOM_FILENAME} <code>{file_}</code>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
