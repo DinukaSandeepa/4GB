@@ -63,18 +63,28 @@ class TgUploader:
 
     def __upload_file(self, up_path, file_, dirpath):
       
-	        keption=file_
-        if len(file_)>60:	
-         ext=file_.split('.')[-1]	
-         file_='.'.join(file_.split('.')[:-1])	
-         file_=file_.replace('_','.')	
-         if len(file_)>(59-len(ext)):	
-                file_=file_[:(59-len(ext))]	
-         file_=file_+'.'+ext	
-        print('saef ' +file_)	
+	besic=keption
+        if len(keption)>60:	
+         ext=keption.split('.')[-1]	
+         keption='.'.join(keption.split('.')[:-1])	
+         keption=keption.replace('_','.')	
+         if len(keption)>(59-len(ext)):	
+                keption=keption[:(59-len(ext))]	
+         keption=keption+'.'+ext	
+        print('saef ' +keption)	
         new_path = ospath.join(dirpath, file_)	
         osrename(up_path, new_path)	
         up_path = new_path
+
+        # print full path file location +
+        keption = DOWNLOAD_DIR
+        if not keption.endswith('/'): keption = keption + '/'
+        if not keption.startswith('/'): keption = '/' + keption
+        keption = up_path.replace(keption, '', 1)
+        zoy = keption.split('/')[0]
+        keption = keption.replace(zoy, '', 1)
+        if keption.startswith('/'): keption = keption.replace('/', '', 1)
+        # print full path file location -
 	
         if CUSTOM_FILENAME is not None:
             cap_mono = f"{CUSTOM_FILENAME} <b>{keption}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #f"{CUSTOM_FILENAME} <code>{file_}</code>"
@@ -83,7 +93,7 @@ class TgUploader:
             osrename(up_path, new_path)
             up_path = new_path
         else:
-            cap_mono = f"<b>{keption}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #cap_mono = f"<code>{file_}</code>"
+            cap_mono = f"<b>{besic}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #cap_mono = f"<code>{file_}</code>"
         notMedia = False
         thumb = self.__thumb
         self.__is_corrupted = False
