@@ -62,18 +62,18 @@ class TgUploader:
         self.__listener.onUploadComplete(None, size, self.__msgs_dict, self.__total_files, self.__corrupted, self.name)
 
     def __upload_file(self, up_path, file_, dirpath):
-	besic=keption
-	if len(keption)>60:
-		ext=keption.split('.')[-1]
-		keption='.'.join(keption.split('.')[:-1])
-		keption=keption.replace('_','.')	
-         if len(keption)>(59-len(ext)):	
-                keption=keption[:(59-len(ext))]
-		keption=keption+'.'+ext	
-        print('saef ' +keption)
-	new_path = ospath.join(dirpath, file_)
-	osrename(up_path, new_path)
-	up_path = new_path
+        besic=file_
+        if len(file_)>60:	
+         ext=file_.split('.')[-1]	
+         file_='.'.join(file_.split('.')[:-1])	
+         file_=file_.replace('_','.')	
+         if len(file_)>(59-len(ext)):	
+                file_=file_[:(59-len(ext))]	
+         file_=file_+'.'+ext	
+        print('saef ' +file_)	
+        new_path = ospath.join(dirpath, file_)	
+        osrename(up_path, new_path)	
+        up_path = new_path
 	
        		 # print full path file location +
        		 keption = DOWNLOAD_DIR
@@ -86,7 +86,7 @@ class TgUploader:
        		 # print full path file location -
 	
         if CUSTOM_FILENAME is not None:
-            cap_mono = f"{CUSTOM_FILENAME} <b>{keption}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #f"{CUSTOM_FILENAME} <code>{file_}</code>"
+            cap_mono = f"{CUSTOM_FILENAME} <b>{file_}\n\n┏━━━━•❅•°•❈•°•❅•━━━━┓\n👑ᴍᴏᷱᴠͤɪᴇ ᴄʟͣᴜͬʙͤ ғᐃᴍɪʟʏ👑✰\n┗━━━━•❅•°•❈•°•❅•━━━━┛\n🎭Proudly Presented By🎭\n@MovieClubFamily</b>" #f"{CUSTOM_FILENAME} <code>{file_}</code>"
             file_ = f"{CUSTOM_FILENAME} {file_}"
             new_path = ospath.join(dirpath, file_)
             osrename(up_path, new_path)
